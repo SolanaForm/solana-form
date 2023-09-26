@@ -9,6 +9,7 @@ export default defineConfig({
   },
   routes: [
     { path: "/", component: "index" },
+    { path: "/home", component: "home" },
     { path: "/confirm", component: "confirm" },
     { path: "/builder", component: "builder" },
   ],
