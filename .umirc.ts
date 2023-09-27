@@ -11,6 +11,9 @@ export default defineConfig({
     { path: "/", component: "index" },
     { path: "/home", component: "home" },
     { path: "/confirm", component: "confirm" },
+    { path: "/form", component: "form" },
+    { path: "/list", component: "list" },
+
     { path: "/builder", component: "builder" },
   ],
   npmClient: 'pnpm',

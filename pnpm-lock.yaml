@@ -85,6 +85,9 @@ devDependencies:
   mocha:
     specifier: ^9.0.3
     version: registry.npmjs.org/mocha@9.2.2
+  pocketbase:
+    specifier: ^0.18.0
+    version: registry.npmjs.org/pocketbase@0.18.0
   ts-mocha:
     specifier: ^10.0.0
     version: registry.npmjs.org/ts-mocha@10.0.0(mocha@9.2.2)
@@ -15166,6 +15169,12 @@ packages:
     name: pngjs
     version: 3.4.0
     engines: {node: '>=4.0.0'}
+    dev: true
+
+  registry.npmjs.org/pocketbase@0.18.0:
+    resolution: {integrity: sha512-09ri0Rnm4JjboU4OJeibd6pgvKi4DPg/r/Uu/QI3mKSZsrROoMT75zyiOldbBBMWZUDG1TRlv6BjQj30SFsrVw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/pocketbase/-/pocketbase-0.18.0.tgz}
+    name: pocketbase
+    version: 0.18.0
     dev: true
 
   registry.npmjs.org/point-in-polygon@1.1.0:

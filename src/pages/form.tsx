@@ -1,29 +1,33 @@
 import { useEffect, useState } from 'react';
-
+import { message } from 'antd';
 import { Wallet } from '@/components/Wallet';
 import { useConnection, useWallet, useAnchorWallet } from '@solana/wallet-adapter-react';
-import { useNavigate } from 'umi';
+import { useNavigate, useSearchParams } from 'umi';
 import FormRender, { useForm } from 'form-render';
-import { deployForm, login } from '@/apis/pb';
+import { submitForm } from '@/apis/pb';
 
 
-export default function ConfirmPage() {
+export default function FormPage() {
   const form = useForm();
   const { connected, connecting, connect, sendTransaction, select, publicKey } = useWallet();
   const a = useAnchorWallet()
   const [value, setValue] = useState<any>(JSON.parse(localStorage.getItem("save-schema") || '{}'));
 
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  async function handleDeploy() {
-    if (!localStorage.getItem("walletName")) {
+  useEffect(() => {
+    if (searchParams.get('id')) {
+      console.log(searchParams.get('id'));
+
+    }
+  })
+  function handleDeploy() {
+    if (localStorage.getItem("wallet") === null) {
       return
     }
-    await login()
-    deployForm(value).then((res) => {
-      navigate('/form?id=' + res.id)
 
-    })
+    navigate('/form')
 
   }
 
@@ -32,10 +36,18 @@ export default function ConfirmPage() {
     connect()
   }
 
+  async function handleFinish(data: any) {
+    submitForm(data, searchParams.get('id') as string).then((res) => {
+      messageApi.success('Submit success')
+    })
+  }
+
+  const [messageApi, contextHolder] = message.useMessage()
+
   return (
     <div className="font-sans">
       <div className="flex justify-between items-center px-16">
-        <h1 className="text-12 font-script">SolanaForm</h1>
+        <h1 className="text-12 font-script" onClick={() => navigate('/home')}>SolanaForm</h1>
 
         <Wallet />
       </div>
@@ -45,18 +57,14 @@ export default function ConfirmPage() {
           <FormRender
             form={form}
             schema={value}
-            footer={false}
+            footer={true}
+            onFinish={handleFinish}
           />
         </div>
 
       </div>
 
-      <div className="center mt-12">
-        <button className={`border rounded-2 center px-4 py-2 text-4 font-bold text-white bg-black`} onClick={handleDeploy}>
-          <div className="i-solar-screen-share-outline mr-3 text-5"></div>
-          Deploy
-        </button>
-      </div>
+
 
     </div>
   );
