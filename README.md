@@ -32,4 +32,4 @@ This is a Solana form application that combines [Solana chain](https://solana.co
 
 ## License
 
-This application is licensed under the MIT license.
+This application is licensed under the [MIT license](https://github.com/SolanaForm/solana-form/blob/main/LICENCE).
