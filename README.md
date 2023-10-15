@@ -1,6 +1,6 @@
 # Solana Form Application
 
-This is a Solana form application that combines Solana chain and Solana low-code platform. Users can use Alibaba's open-source form designer to design forms on their own, deploy the form structure and related functions to the chain, and then submit form data through the on-chain contract. The collected data is displayed through the user interface of the off-chain service.
+This is a Solana form application that combines [Solana chain](https://solana.com) and [Solana low-code platform](https://github.com/dddappp/A-Solana-Demo). Users can use [Alibaba's open-source form designer](https://xrender.fun/schema-builder) to design forms on their own, deploy the form structure and related functions to the chain, and then submit form data through the on-chain contract. The collected data is displayed through the user interface of the off-chain service.
 
 ## Features
 
